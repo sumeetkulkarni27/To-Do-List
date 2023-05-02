@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const _=require("lodash");
+require('dotenv').config();
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.use(express.static("public"));
 // const items = ["Buy Food", "Cook Food", "Eat Food"];
 // const workItems = [];
 
-mongoose.connect("mongodb+srv://sumeet27:kulkarnisumeet@cluster0.xyy6qg7.mongodb.net/todolistDB", {useNewUrlParser: true});
+mongoose.connect(process.env.DB_KEY, {useNewUrlParser: true});
 
 const itemSchema = new mongoose.Schema({
   name: String
